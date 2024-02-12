@@ -1,26 +1,30 @@
 #### Preamble ####
-# Purpose: Downloads and saves the data from [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Downloads and saves Data
+# Author: Heyucheng Zhang, Jiwon Choi
+# Date: 12 February 2024 
+# Contact: heyucheng.zhang@mail.utoronto.ca, jwon.choi@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
-
+# Pre-requisites: 00-simulate_data.R
 
 #### Workspace setup ####
-library(opendatatoronto)
 library(tidyverse)
-# [...UPDATE THIS...]
 
-#### Download data ####
-# [...ADD CODE HERE TO DOWNLOAD...]
+#### Download data and save data ####
+url <- "https://apps.bea.gov/regional/zip/RPP.zip"
+zip_file <- "RPP.zip"
+
+# Set the target directory
+target_dir <- "inputs/data/income_data"
+
+# Create the target directory if it doesn't exist
+if (!file.exists(target_dir)) {dir.create(target_dir, recursive = TRUE)}
+
+# Download the file to the target directory
+download.file(url, paste0(target_dir, "/", zip_file), mode = "wb")
+
+# Unzip the file to the target directory
+unzip(paste0(target_dir, "/", zip_file), exdir = target_dir)
 
 
-
-#### Save data ####
-# [...UPDATE THIS...]
-# change the_raw_data to whatever name you assigned when you downloaded it.
-write_csv(the_raw_data, "inputs/data/raw_data.csv") 
 
          

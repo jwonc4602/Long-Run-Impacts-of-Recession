@@ -1,15 +1,16 @@
 #### Preamble ####
-# Purpose: Tests... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Tests the cleaned data from "outputs/data/cleaned_data.csv"
+# Author: Heyucheng Zhang, Jiwon Choi
+# Date: 12 February 2024 
+# Contact: heyucheng.zhang@mail.utoronto.ca, jwon.choi@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: 00-simulate_data.R，01-download_data.R and 02-data_cleaning.R
 
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
 
 #### Test data ####
+
+# Read data
+cleaned_data <- read_csv("outputs/data/cleaned_data.csv")
