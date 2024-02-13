@@ -12,6 +12,7 @@ library(dplyr)
 library(tibble)
 
 #### Simulate data 1) ####
+# Simulation for the change of unemployment rate between 1976 and 1989 for four major states
 set.seed(123) # Setting seed for reproducibility
 simulated_data1 <-
   tibble(
@@ -49,7 +50,9 @@ plot1 <- ggplot(simulated_data1, aes(x = year, y = rate, color = state)) +
 # Display the plot
 print(plot1)
 
+
 ### Simulation 2 ###
+# Simulation for the difference of unemployment for four major states before, during and after recession
 # Setting seed for reproducibility
 set.seed(123)
 
@@ -81,9 +84,8 @@ print(plot2)
 
 
 ### simulation 3 ###
-
-# Simulation of personal income per capita over time
-set.seed(1250)  # Set a specific seed value for reproducibility
+# Simulation of personal income per capita over time from 1910 to 2013
+set.seed(123)  # Set a specific seed value for reproducibility
 
 simulated_data3 <-
   tibble(
