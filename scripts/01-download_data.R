@@ -6,25 +6,10 @@
 # License: MIT
 # Pre-requisites: 00-simulate_data.R
 
-#### Workspace setup ####
-library(tidyverse)
-
 #### Download data and save data ####
-url <- "https://apps.bea.gov/regional/zip/RPP.zip"
-zip_file <- "RPP.zip"
 
-# Set the target directory
-target_dir <- "inputs/data/income_data"
-
-# Create the target directory if it doesn't exist
-if (!file.exists(target_dir)) {dir.create(target_dir, recursive = TRUE)}
-
-# Download the file to the target directory
-download.file(url, paste0(target_dir, "/", zip_file), mode = "wb")
-
-# Unzip the file to the target directory
-unzip(paste0(target_dir, "/", zip_file), exdir = target_dir)
-
-
-
-         
+# We can't download the data using the R script since they are behind a sign-in.
+# Replication URL: https://www.openicpsr.org/openicpsr/project/122001/version/V1/view
+# Replication/data URL: https://www.openicpsr.org/openicpsr/project/122001/version/V1/view?path=/openicpsr/122001/fcr:versions/V1/replication/data&type=folder
+# We downloaded three raw data files from the replication/data URL. They were "BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx", "CA1_1969_2013_ALL.csv", "CA25_1969_2000_ALL.csv".
+# We saved these three files in inputs/data/.
