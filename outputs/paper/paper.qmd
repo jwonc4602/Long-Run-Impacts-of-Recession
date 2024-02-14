@@ -13,7 +13,7 @@ bibliography: references.bib
 ---
 
 # Introduction
-*This reproduction was performed after a replication on the Social Science Reproduction platform: ****[link here](https://www.socialsciencereproduction.org/reproductions/f4c25f83-2c8b-448e-be76-760e02694112/index)***
+*This reproduction was performed after a replication on the Social Science Reproduction platform: ****[link here](update the link!!!)***
 
 # Data
 
@@ -28,7 +28,9 @@ This paper replicates and extends the analyses presented in the original study b
 - Personal Income:
 - Business Patterns:
 
-## Measurement
+## Methodology and Measurement
+
+
 
 # Results
 ```{r}
