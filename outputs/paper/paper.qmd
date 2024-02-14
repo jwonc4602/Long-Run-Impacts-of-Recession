@@ -1,7 +1,8 @@
 ---
-title: "..."
+title: "The Lasting Shadows of Economic Downturns"
+subtitle: "Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment and Income in America"
 author: "Heyucheng Zhang, Jiwon Choi"
-thanks: "Code and data are available at: https://github.com/jwonc4602/STA302_paper2"
+thanks: "Code and data are available at: https://github.com/jwonc4602/Long-Run-Impacts-of-Recession"
 date: "12 February 2024"
 date-format: "D MMMM YYYY"
 abstract: "..."
