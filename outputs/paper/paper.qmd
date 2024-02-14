@@ -1,13 +1,64 @@
 ---
 title: "The Lasting Shadows of Economic Downturns"
-subtitle: "Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment and Income in America"
+subtitle: "Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment, Personal Income and Business Pattern in America"
 author: "Heyucheng Zhang, Jiwon Choi"
 thanks: "Code and data are available at: https://github.com/jwonc4602/Long-Run-Impacts-of-Recession"
 date: "12 February 2024"
 date-format: "D MMMM YYYY"
-abstract: "..."
+abstract: "This study examines the long-term impacts of the 1980–1982 recession, focusing on changes in unemployment rates and personal income in America to assess how economic downturns influence decisions regarding business patterns and human capital investment. Our analysis of historical data reveals that the recession had enduring negative effects on employment and income levels, suggesting that such economic challenges may lead individuals to another business trends as a means to improve their marketability and financial stability. These findings emphasizes the importance of incorporating long-term considerations into economic policy-making, highlighting the need for strategies that mitigate the adverse effects of recessions while fostering investment in human capital."
 format: pdf
 toc: true
 number-sections: true
 bibliography: references.bib
 ---
+
+# Introduction
+*This reproduction was performed after a replication on the Social Science Reproduction platform: ****[link here](https://www.socialsciencereproduction.org/reproductions/f4c25f83-2c8b-448e-be76-760e02694112/index)***
+
+# Data
+
+## Sources
+```{r}
+### few rows for unemployment or usa_personal_income data presented here as example ###
+```
+
+This paper replicates and extends the analyses presented in the original study by employing an array of datasets, each derived from a variety of publicly accessible sources. The datasets have been curated and categorized by the author into distinct files, reflecting their respective roles and appearances within the analysis. Below is a detailed overview of the data sources utilized in this paper:
+
+- Unemployment Rate:
+- Personal Income:
+- Business Patterns:
+
+## Measurement
+
+# Results
+```{r}
+### the line graphs of average unemployment rate by four most populated states###
+### which is something like simulated plot1###
+```
+
+```{r}
+### the bar graph change of unemployment for four major states ###
+### something like simulated plot2 ###
+```
+
+```{r}
+### the line graph of personal income per capita by year ###
+### something like simulated plot3 ###
+```
+
+```{r}
+### something like simulated plot4 ###
+```
+
+```{r}
+### something like simulated plot5 ###
+```
+
+# Discussion
+## How Recession Impacts on Unemployment
+## How Recession Impacts on Personal Income
+## How Recession Changes the Business Patterns
+## Limitations and Next Steps
+
+\newpage
+# References
