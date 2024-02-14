@@ -16,6 +16,8 @@ library(tidyverse)
 cleaned_unemployment <- read_csv("outputs/data/cleaned_unemployment.csv")
 cleaned_four_states <- read_csv("outputs/data/cleaned_four_states.csv")
 cleaned_personal_income <- read_csv("outputs/data/cleaned_personal_income.csv")
+cleaned_bussiness_pattern1 <- read_csv("outputs/data/cleaned_bussiness_pattern1.csv")
+cleaned_bussiness_pattern2 <- read_csv("outputs/data/cleaned_bussiness_pattern2.csv")
 
 # Test if there are 51 unique state name in the "state_name" column, note that "District of Columbia" is included in "state_name" column
 cleaned_unemployment$state_name |>
@@ -33,11 +35,32 @@ cleaned_four_states$state_name |>
 # Test if the number of rows in the cleaned_four_states is equal to 4(states) x 14(years from 1976 to 1989)
 nrow(cleaned_four_states) == 4 * 14
 
-# Test if the number of columns in the cleaned_personal_income is equal to 1 (Description) + 45(years from 1969 to 2013))
-length(cleaned_personal_income) == 1 + 45
+# Test if the number of rows in the cleaned_personal_income is equal to 38(years from 1976 to 2013))
+nrow(cleaned_personal_income) == 38
 
-# Test if each year in the range from 1969 to 2013 is present in the column names of the cleaned_personal_income
-1969:2013 %in% colnames(cleaned_personal_income)
+# Test if the unique years in the cleaned_personal_income fall within the range from 1976 to 1989
+cleaned_personal_income$year |>
+  unique() == 1976:2013
+
+# Test if the number of rows in the cleaned_bussiness_pattern1 is equal to 32(years from 1969 to 2000))
+nrow(cleaned_bussiness_pattern1) == 32
+
+# Test if the number of columns in the cleaned_bussiness_pattern1 is equal to 4("year", "Total full-time and part-time employment", "Wage and salary employment", "Proprietors employment")
+length(cleaned_bussiness_pattern1) == 4
+
+# Test if the unique years in the cleaned_bussiness_pattern1 fall within the range from 1969 to 2000
+cleaned_bussiness_pattern1$year |>
+  unique() == 1969:2000
+
+# Test if the number of rows in the cleaned_bussiness_pattern2 is equal to 32(years from 1969 to 2000))
+nrow(cleaned_bussiness_pattern2) == 32
+
+# Test if the number of columns in the cleaned_bussiness_pattern2 is equal to 11("year", "Private nonfarm employment", "Agricultural services, forestry, and fishing", "Mining", "Construction", "Manufacturing", "Transportation and public utilities", "Wholesale trade", "Retail trade", "Finance, insurance, and real estate", "Services")
+length(cleaned_bussiness_pattern2) == 11
+
+# Test if the unique years in the cleaned_bussiness_pattern2 fall within the range from 1969 to 2000
+cleaned_bussiness_pattern2$year |>
+  unique() == 1969:2000
 
 #### Test result ####
 # Result: All TRUE
