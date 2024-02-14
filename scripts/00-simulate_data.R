@@ -109,3 +109,82 @@ plot3 <- ggplot(simulated_data3, aes(x = Year, y = `Income Per Capita`)) +
 # Display the plot
 print(plot3)
 
+
+#### Simulate data for business pattern 1 ####
+set.seed(123) # Setting seed for reproducibility
+simulated_data_business_pattern <-
+  tibble(
+    # Create a sequence of years from 1960 to 2000
+    Year = 1960:2000,
+    # Simulate total employment data with a gradual increase
+    TotalEmployment = cumsum(runif(41, min = 5, max = 10)),
+    # Simulate wage and salary employment data with a gradual increase
+    WageSalaryEmployment = cumsum(runif(41, min = 3, max = 8)),
+    # Simulate proprietors' employment data with a gradual increase
+    ProprietorsEmployment = cumsum(runif(41, min = 2, max = 6))
+  ) %>%
+  # Reshape data for plotting
+  gather(key = "EmploymentType", value = "Count", -Year)
+
+# Define custom colors for employment types
+employment_colors <- c("TotalEmployment" = "blue", 
+                       "WageSalaryEmployment" = "red", 
+                       "ProprietorsEmployment" = "orange")
+
+# Create a line plot with custom styles
+plot4 <- ggplot(simulated_data_business_pattern, aes(x = Year, y = Count, color = EmploymentType)) +
+  geom_line(size = 1) +
+  scale_color_manual(values = employment_colors) + # Set custom colors for lines
+  labs(title = "Business Pattern 1",
+       x = "Year", y = "Count") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), # Center the plot title
+        axis.text.x = element_text(angle = 45, hjust = 1), # Rotate x-axis labels (optional)
+        legend.position = "bottom") # Move legend to the bottom
+
+# Display the plot
+print(plot4)
+
+
+#### Simulate data for business pattern 2 ####
+set.seed(123) # Setting seed for reproducibility
+
+# Define the sectors
+sectors <- c("Service", "Finance, Insurance, Real Estate", 
+             "Agricultural Services, Forestry, and Fishing", 
+             "Mining", "Construction", "Manufacturing", 
+             "Transportation and Public Utilities", 
+             "Wholesale Trade", "Retail Trade")
+
+# Create a sequence of years from 1960 to 2000
+years <- 1960:2000
+
+# Generate random data for each sector
+simulated_counts <- lapply(sectors, function(sector) {
+  cumsum(runif(length(years), min = 50000, max = 200000)) # Random growth pattern
+})
+
+# Combine all data into a data frame
+simulated_data_business_pattern2 <- tibble(
+  Year = rep(years, times = length(sectors)),
+  Sector = rep(sectors, each = length(years)),
+  Count = unlist(simulated_counts)
+)
+
+# Define custom colors for each sector
+sector_colors <- setNames(rainbow(length(sectors)), sectors)
+
+# Create a line plot with custom styles
+plot5 <- ggplot(simulated_data_business_pattern2, aes(x = Year, y = Count, color = Sector)) +
+  geom_line(size = 1) +
+  scale_color_manual(values = sector_colors) + # Set custom colors for lines
+  labs(title = "Business Pattern 2",
+       x = "Year", y = "Count") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), # Center the plot title
+        axis.text.x = element_text(angle = 45, hjust = 1), # Rotate x-axis labels (optional)
+        legend.position = "bottom") # Move legend to the bottom
+
+# Display the plot
+print(plot5)
+
