@@ -57,8 +57,8 @@ This paper replicates and extends the analyses from the original study by using 
 #| warning: false
 #| label: tbl-1
 #| tbl-cap: Sample 1
-kable(cleaned_four_states, format = "latex", booktabs = TRUE) |>
-  kable_styling(latex_options = c("striped", "scale_down"), font_size = 7)
+kable(cleaned_four_states, format = "latex", booktabs = TRUE, align = "c") |>
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), font_size = 7, full_width = FALSE)
 ```
 
 
@@ -68,8 +68,8 @@ kable(cleaned_four_states, format = "latex", booktabs = TRUE) |>
 #| warning: false
 #| label: tbl-2
 #| tbl-cap: Sample 2
-kable(head(cleaned_unemployment, 30), format = "latex", booktabs = TRUE) |>
-  kable_styling(latex_options = c("striped", "scale_down"))
+kable(head(cleaned_unemployment, 30), format = "latex", booktabs = TRUE, align = "c") |>
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = FALSE)
 ```
 
 ```{r}
@@ -78,8 +78,28 @@ kable(head(cleaned_unemployment, 30), format = "latex", booktabs = TRUE) |>
 #| warning: false
 #| label: tbl-3
 #| tbl-cap: Sample 3
-kable(cleaned_personal_income, format = "latex", booktabs = TRUE) |>
-  kable_styling(latex_options = c("striped", "scale_down"))
+kable(cleaned_personal_income, format = "latex", booktabs = TRUE, align = "c") |>
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), font_size = 7, full_width = FALSE)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: tbl-4
+#| tbl-cap: Sample 4
+kable(head(cleaned_bussiness_pattern1, 10), format = "latex", booktabs = TRUE, align = "c") |>
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = FALSE)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: tbl-5
+#| tbl-cap: Sample 5
+kable(head(cleaned_bussiness_pattern2, 10), format = "latex", booktabs = TRUE, align = "c") |>
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = FALSE)
 ```
 
 We used data from two sources for our research. First, we utilized data from the Bureau of Economic Analysis (BEA) Regional Economic Accounts[@BEA]. These datasets were downloaded in March 2015 from <https://apps.bea.gov/regional/downloadzip.cfm> by Stuart. The BEA occasionally revises the methodology used to generate these data, and accordingly, updates all files to reflect these changes. As a result, data downloaded on subsequent dates might present some variations. The datasets of particular interest included 'CA1: Personal Income Summary: Personal Income, Population, Per Capita Personal Income', which covers Personal Income, Population, and Per Capita Personal Income, and 'CA25: Total Full-Time and Part-Time Employment by SIC Industry', offering detailed insights into income components and industry-specific earnings.
@@ -92,27 +112,155 @@ The datasets 'CA1_1969_2013_ALL.csv' and 'CA25_1969_2000_ALL.csv' from the BEA, 
 
 # Results
 
-```{r}
+```{r fig.width=10, fig.height=5}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-1
+#| fig-cap: plot 1
 ### the line graphs of average unemployment rate by four most populated states###
-### which is something like simulated plot1###
+plot_data1 <-
+  cleaned_four_states  |>
+  select(year, state_name, average_unemployment_rate) |>
+  arrange(year, state_name)
+
+# Define custom colors for each state
+state_colors <- c("California" = "red", "Florida" = "green", "New York" = "blue", "Texas" = "yellow")
+
+# Create a line plot with custom styles
+plot1 <- ggplot(plot_data1, aes(x = year, y = average_unemployment_rate, color = state_name)) +
+  geom_line(size = 1) +
+  scale_color_manual(values = state_colors) + # Set custom colors for lines
+  geom_vline(xintercept = 1980, linetype="dashed", color = "red", size = 1) +
+  geom_vline(xintercept = 1982, linetype="dashed", color = "red", size = 1) +
+  annotate("text", x = 1980, y = max(plot_data1$average_unemployment_rate), label = "Recession Start", vjust = 2) +
+  annotate("text", x = 1982, y = max(plot_data1$average_unemployment_rate), label = "Recession End", vjust = -0.5) +
+  labs(title = "Average Unemployment Rate by Four Most Populated States and Year",
+       x = "Year", y = "Average Unemployment Rate") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), # Center the plot title
+        axis.text.x = element_text(angle = 45, hjust = 1), # Rotate x-axis labels (optional)
+        legend.position = "bottom") # Move legend to the bottom
+
+# Display the plot
+print(plot1)
+
 ```
 
-```{r}
+```{r fig.width=10, fig.height=5}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-2
+#| fig-cap: plot 2
 ### the bar graph change of unemployment for four major states ###
 ### something like simulated plot2 ###
+plot_data2 <-
+  cleaned_four_states  |>
+  select(year, state_name, average_unemployment_rate) |>
+  arrange(year, state_name) |>
+  filter(year %in% c(1976, 1982, 1989))
+
+# Define custom colors for the years
+year_colors <- c("1976" = "green", "1982" = "red", "1989" = "blue")
+
+# Create a bar plot with custom styles
+plot2 <- ggplot(plot_data2, aes(x = state_name, y = average_unemployment_rate, fill = as.factor(year))) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
+  scale_fill_manual(values = year_colors) +  # Set custom colors for bars
+  labs(title = "Change of Unemployment for Four Major States",
+       x = "State", y = "Change in Unemployment Rate") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),  # Center the plot title
+    axis.text.x = element_text(angle = 45, hjust = 1),  # Rotate x-axis labels (optional)
+    legend.position = "bottom"  # Move legend to the bottom
+  )
+
+# Display the plot
+print(plot2)
 ```
 
-```{r}
+```{r fig.width=10, fig.height=5}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-3
+#| fig-cap: plot 3
 ### the line graph of personal income per capita by year ###
-### something like simulated plot3 ###
+plot_data3 <-
+  cleaned_personal_income  |>
+  filter(year %in% 1976:1989)
+
+# Create a line plot with custom styles
+plot3 <- ggplot(plot_data3, aes(x = year, y = `Per capita personal income (dollars) 2/`)) +
+  geom_line(color = "forestgreen", size = 1) +  # Set line color and size
+  labs(x = "Year", y = "Income Per Capita", 
+       title = "Personal Income Per Capita by Year") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),  # Center the plot title
+    axis.text.x = element_text(angle = 45, hjust = 1)  # Rotate x-axis labels (optional)
+  )
+
+# Display the plot
+print(plot3)
 ```
 
-```{r}
-### something like simulated plot4 ###
+```{r fig.width=10, fig.height=5}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-4
+#| fig-cap: plot 4
+plot_data4 <- cleaned_bussiness_pattern1 |>
+  pivot_longer(
+    cols = -year,
+    names_to = "EmploymentType",
+    values_to = "Count"
+  ) |>
+  filter(year %in% 1976:1989)
+
+# Create a line plot
+plot4 <- ggplot(plot_data4, aes(x = year, y = Count, color = EmploymentType)) +
+  geom_line() +
+  labs(
+    title = "Business Pattern 1",
+    x = "Year",
+    y = "Count",
+    color = "Employment Type"
+  ) + theme_minimal()
+
+# Display the plot
+print(plot4)
 ```
 
-```{r}
-### something like simulated plot5 ###
+```{r fig.width=10, fig.height=5}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-5
+#| fig-cap: plot 5
+plot_data5 <- cleaned_bussiness_pattern2 |>
+  pivot_longer(
+    cols = -year,
+    names_to = "EmploymentType",
+    values_to = "Count"
+  ) |>
+  filter(year %in% 1976:1989)
+
+# Create a line plot
+plot5 <- ggplot(plot_data5, aes(x = year, y = Count, color = EmploymentType)) +
+  geom_line() +
+  labs(
+    title = "Business Pattern 1",
+    x = "Year",
+    y = "Count",
+    color = "Employment Type"
+  ) + theme_minimal()
+
+# Display the plot
+print(plot5)
 ```
 
 # Discussion
