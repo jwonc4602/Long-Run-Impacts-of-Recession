@@ -14,20 +14,21 @@ library(tibble)
 #### Simulate data 1) ####
 # Simulation for the change of unemployment rate between 1976 and 1989 for four major states
 set.seed(123) # Setting seed for reproducibility
+base_rate <- c(3.5, 4.5, 5.5, 3) # Lower base rates for states before recession
 simulated_data1 <-
   tibble(
     # Create a sequence of years for each state
     year = rep(1976:1989, each = 4),
     # Replicate each state name for the length of the years
     state = rep(c("New York", "Florida", "Texas", "California"), times = length(1976:1989)),
-    # Simulate unemployment rate data
-    rate = c(rnorm(length(1976:1989), 5, 1), rnorm(length(1976:1989), 6, 1), 
-             rnorm(length(1976:1989), 7, 1), rnorm(length(1976:1989), 4.5, 1))
+    # Simulate unemployment rate data with lower rates before the recession
+    rate = rep(base_rate, times = length(1976:1989)) + rnorm(length(1976:1989)*4, 0, 1)
   )
 
-# Introduce a recession effect for 1980
+# Introduce a recession effect for 1980 to 1982, with a peak at 1982
 simulated_data1 <- simulated_data1 %>%
-  mutate(rate = rate + ifelse(year == 1980, 2, 0))
+  mutate(rate = rate + ifelse(year >= 1980 & year <= 1982, 2 + (year - 1980), 0) - # Increment rate during recession
+           ifelse(year > 1982, (1982 - year) / 2, 0)) # Decrease after the recession ends
 
 # Define custom colors for each state
 state_colors <- c("New York" = "blue", "Florida" = "green", "Texas" = "yellow", "California" = "red")
@@ -52,15 +53,16 @@ print(plot1)
 
 
 ### Simulation 2 ###
-# Simulation for the difference of unemployment for four major states before, during and after recession
+# Simulation for the difference of unemployment for four major states before, during, and after recession
 # Setting seed for reproducibility
 set.seed(123)
 
 # Use tibble to create the data frame for simulated changes in unemployment
+# We're assuming an increase in unemployment rate during the recession
 simulated_data2 <- tibble(
   state = rep(c("Florida", "New York", "Texas", "California"), times = 3),
   year = factor(rep(c("1986", "Recession", "1989"), each = 4), levels = c("1986", "Recession", "1989")),
-  change = c(rnorm(4, 2, 0.5), rnorm(4, -1, 0.5), rnorm(4, 1, 0.5))
+  change = c(rnorm(4, 1, 0.5), rnorm(4, 5, 0.5), rnorm(4, 1, 0.5)) # Increase during Recession
 )
 
 # Define custom colors for the years
