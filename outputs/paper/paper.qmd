@@ -68,6 +68,8 @@ The datasets 'CA1_1969_2013_ALL.csv' and 'CA25_1969_2000_ALL.csv' from the BEA, 
 ## Methodology and Measurement
 The data collection methodology is designed to analyze unemployment, personal income, and business trends comprehensively. Data was collected and analyzed using R statistical programming software [@citeR], with additional packages like `tidyverse` [@tidyverse], `ggplot2` [@ggplot], `dplyr` [@dplyr], `readxl` [@readxl], `tibble` [@tibble], `janitor` [@janitor], `knitr` [@knitr], and `here` [@here] for support. The data is mainly numeric such as unemployment rate, personal income per capita, or counting the number of each employment type and business type.
 
+For the specific measurement of this project, we first have unemployment rates were quantified as percentages of the active labor force without employment but seeking work. Data was sourced from 'BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx', focusing on the most populous states: California, Florida, New York, and Texas. Initial cleaning standardized the data for consistency across these states. Personal income per capita measurements, derived from 'CA1_1969_2013_ALL.csv', represent average income per person in dollars for the period 1979-1989. This indicator was adjusted for inflation to ensure temporal comparability. Business trends were assessed through two aspects: employment and business types. Employment types were categorized into three main groups to analyze sector-specific employment trends. Business types were segmented to evaluate the distribution and evolution of various sectors. Both approaches aimed to capture shifts and patterns relevant to economic analysis. More detailed data samples are below.
+
 ```{r}
 #| echo: false
 #| message: false
