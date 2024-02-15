@@ -75,7 +75,7 @@ kable(head(cleaned_unemployment, 30), format = "latex", booktabs = TRUE) |>
 kable(cleaned_four_states, format = "latex", booktabs = TRUE) |>
   kable_styling(latex_options = c("striped", "scale_down"), font_size = 7)
 ```
-We alsonutilized the dataset 'CA1_1969_2013_ALL.csv' to extract three specific rows detailing per capita personal income (in dollars) from 1969 to 2013. To ensure consistency with unemployment rate data, we narrowed the focus to the years 1979 to 1989 (see @tbl-personal-income).
+We also utilized the dataset 'CA1_1969_2013_ALL.csv' to extract three specific rows detailing per capita personal income (in dollars) from 1969 to 2013. To ensure consistency with unemployment rate data, we narrowed the focus to the years 1979 to 1989 (see @tbl-personal-income).
 ```{r}
 #| echo: false
 #| message: false
