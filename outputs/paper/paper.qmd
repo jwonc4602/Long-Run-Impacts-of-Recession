@@ -3,7 +3,7 @@ title: "The Lasting Shadows of Economic Downturns"
 subtitle: "Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment, Personal Income and Business Pattern in America"
 author: "Heyucheng Zhang, Jiwon Choi"
 thanks: "Code and data are available at: https://github.com/jwonc4602/Long-Run-Impacts-of-Recession"
-date: "12 February 2024"
+date: "15 February 2024"
 date-format: "D MMMM YYYY"
 abstract: "This study examines the long-term impacts of the 1980–1982 recession, focusing on changes in unemployment rates and personal income in America to assess how economic downturns influence decisions regarding business patterns and human capital investment. Our analysis of historical data reveals that the recession had enduring negative effects on employment and income levels, suggesting that such economic challenges may lead individuals to another business trends as a means to improve their marketability and financial stability. These findings emphasizes the importance of incorporating long-term considerations into economic policy-making, highlighting the need for strategies that mitigate the adverse effects of recessions while fostering investment in human capital."
 format: pdf

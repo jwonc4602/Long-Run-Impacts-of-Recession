@@ -1,6 +1,8 @@
-# Title
+The Lasting Shadows of Economic Downturns: Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment, Personal Income and Business Pattern in America
 
 ## Overview
+
+This project examines the long-term impacts of the 1980–1982 recession in the United States, focusing on unemployment rates, personal income, and business patterns. Analyzing historical data reveals significant, enduring negative effects on employment and income levels, suggesting that economic downturns drive shifts toward new business trends for improved marketability and financial stability. The study utilizes R programming for data analysis, leveraging sources from the Bureau of Economic Analysis (BEA) and the Bureau of Labor Statistics (BLS). Findings emphasize the need for economic policies that consider the long-term effects of recessions on labor markets and financial stability. This work underscores the importance of strategic policy development to mitigate adverse effects and promote human capital investment.
 
 ## File Structure
 
@@ -16,5 +18,4 @@ The repo is structured as:
 -   `scripts` contains the R scripts used to simulate, download, clean and test data.
 
 ## LLM usage
-
--   ...
+-  Statement on LLM usage: No LLMs were used for any aspect of this work
