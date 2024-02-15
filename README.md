@@ -13,9 +13,10 @@ The repo is structured as:
     -   'CA1_1969_2013_ALL.csv' contains data regarding personal income.
     -   'CA25_1969_2000_ALL.csv' contains data regarding business pattern
 -   `input/sketches` contains the sketches of a potential dataset and graph.
--   `outputs/data` contains the cleaned dataset and analysis dataset that were constructed.
+-   `outputs/data` contains the cleaned dataset that was construed.
 -   `outputs/paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper.
 -   `scripts` contains the R scripts used to simulate, download, clean and test data.
 
 ## LLM usage
--  Statement on LLM usage: No LLMs were used for any aspect of this work
+
+-   Statement on LLM usage: No LLMs were used for any aspect of this work
