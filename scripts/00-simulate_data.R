@@ -51,17 +51,18 @@ plot1 <- ggplot(simulated_data1, aes(x = year, y = rate, color = state)) +
 # Display the plot
 print(plot1)
 
+
 ### Simulation 2 ###
 # Simulation for the difference of unemployment for four major states before, during, and after recession
 # Setting seed for reproducibility
 set.seed(123)
 
 # Use tibble to create the data frame for simulated changes in unemployment
-# We're assuming a decrease in unemployment rate during the recession for simulation purposes
+# We're assuming an increase in unemployment rate during the recession
 simulated_data2 <- tibble(
   state = rep(c("Florida", "New York", "Texas", "California"), times = 3),
   year = factor(rep(c("1986", "Recession", "1989"), each = 4), levels = c("1986", "Recession", "1989")),
-  change = c(rnorm(4, -1, 0.5), rnorm(4, -3, 0.5), rnorm(4, 2, 0.5)) # Note the changes here
+  change = c(rnorm(4, 1, 0.5), rnorm(4, 5, 0.5), rnorm(4, 1, 0.5)) # Increase during Recession
 )
 
 # Define custom colors for the years
