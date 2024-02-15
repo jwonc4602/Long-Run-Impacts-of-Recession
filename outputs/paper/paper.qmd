@@ -42,42 +42,46 @@ cleaned_bussiness_pattern2 <- read_csv(file = here("outputs/data/cleaned_bussine
 *This reproduction was performed after a replication on the Social Science Reproduction platform: [**link here**](update%20the%20link!!!)*
 
 # Data
-
-This paper replicates and extends the analyses from the original study by using a range of datasets obtained from various publicly accessible sources. Stuart has categorized the datasets into distinct files, reflecting their respective roles in the analysis.
+This paper replicates and extends the analyses from the original paper, 'The Long-Run Effects of Recessions on Education and Income' [@10.1257/app.20180055] by using a range of datasets obtained from various publicly accessible sources. Stuart has categorized the datasets into distinct files, reflecting their respective roles in the analysis.
 
 ## Sources
+We used data from two sources for our research. First, we utilized data from the Bureau of Economic Analysis (BEA) Regional Economic Accounts[@BEA]. These datasets were downloaded in March 2015 from <https://apps.bea.gov/regional/downloadzip.cfm> by Stuart. The BEA occasionally revises the methodology used to generate these data, and accordingly, updates all files to reflect these changes. As a result, data downloaded on subsequent dates might present some variations. The datasets of particular interest included 'CA1: Personal Income Summary: Personal Income, Population, Per Capita Personal Income', which covers Personal Income, Population, and Per Capita Personal Income, and 'CA25: Total Full-Time and Part-Time Employment by SIC Industry', offering detailed insights into income components and industry-specific earnings.
 
-```{r}
-### few rows for unemployment or usa_personal_income data presented here as example ###
-```
+Second, we obtained unemployment data for the years 1976-1989 which Stuart obtained through email communication with Brian Hannon of the BLS from the Bureau of Labor Statistics (BLS) Local Area Unemployment Statistics [@BLS]. This data, covering various counties, is compiled in the file 'BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx' and is available through the Inter-university Consortium for Political and Social Research.
+
+The datasets 'CA1_1969_2013_ALL.csv' and 'CA25_1969_2000_ALL.csv' from the BEA, along with the 'BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx' from the BLS are crucial for analyzing personal income, business patterns, and unemployment trends in our study.
+
+## Methodology and Measurement
+The data collection methodology is designed to analyze unemployment, personal income, and business trends comprehensively. Data was collected and analyzed using R statistical programming software [@citeR], with additional packages like `tidyverse` [@tidyverse], `ggplot2` [@ggplot], `dplyr` [@dplyr], `readxl` [@readxl], `tibble` [@tibble], `janitor` [@janitor], `knitr` [@knitr], and `here` [@here] for support. The data is mainly numeric, unemployment rate, personal income per capitia, or counting the number of each business patterns.
+
+Initial data cleaning from 'BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx' focused on nationwide unemployment rates (see @tbl-first-cleaned-unemployment-data), but due to the breadth of data, the study narrowed its focus to the four most populous states in the USA: California, Florida, New York, and Texas (see @tbl-cleaned-unemployment-data-focusing-four-states).
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
-#| label: tbl-1
-#| tbl-cap: Sample 1
+#| label: tbl-first-cleaned-unemployment-data
+#| tbl-cap: Sample of First Cleaned Unemployment Data
 kable(cleaned_four_states, format = "latex", booktabs = TRUE, align = "c") |>
   kable_styling(latex_options = c("striped", "scale_down", "hold_position"), font_size = 7, full_width = FALSE)
 ```
 
-
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
-#| label: tbl-2
-#| tbl-cap: Sample 2
+#| label: tbl-cleaned-unemployment-data-focusing-four-states
+#| tbl-cap: Cleaned Unemployment Data Focusing Four Most Populated States
 kable(head(cleaned_unemployment, 30), format = "latex", booktabs = TRUE, align = "c") |>
   kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = FALSE)
 ```
-
+We alsonutilized the dataset 'CA1_1969_2013_ALL.csv' to extract three specific rows detailing per capita personal income (in dollars) from 1969 to 2013. To ensure consistency with unemployment rate data, we narrowed the focus to the years 1979 to 1989 (see @tbl-personal-income).
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
-#| label: tbl-3
-#| tbl-cap: Sample 3
+#| label: tbl-personal-income
+#| tbl-cap: Cleaned Personal Income Per Capita in Dollars
 kable(cleaned_personal_income, format = "latex", booktabs = TRUE, align = "c") |>
   kable_styling(latex_options = c("striped", "scale_down", "hold_position"), font_size = 7, full_width = FALSE)
 ```
@@ -101,14 +105,6 @@ kable(head(cleaned_bussiness_pattern1, 10), format = "latex", booktabs = TRUE, a
 kable(head(cleaned_bussiness_pattern2, 10), format = "latex", booktabs = TRUE, align = "c") |>
   kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = FALSE)
 ```
-
-We used data from two sources for our research. First, we utilized data from the Bureau of Economic Analysis (BEA) Regional Economic Accounts[@BEA]. These datasets were downloaded in March 2015 from <https://apps.bea.gov/regional/downloadzip.cfm> by Stuart. The BEA occasionally revises the methodology used to generate these data, and accordingly, updates all files to reflect these changes. As a result, data downloaded on subsequent dates might present some variations. The datasets of particular interest included 'CA1: Personal Income Summary: Personal Income, Population, Per Capita Personal Income', which covers Personal Income, Population, and Per Capita Personal Income, and 'CA25: Total Full-Time and Part-Time Employment by SIC Industry', offering detailed insights into income components and industry-specific earnings.
-
-Second, we obtained unemployment data for the years 1976-1989 which Stuart obtained through email communication with Brian Hannon of the BLS from the Bureau of Labor Statistics (BLS) Local Area Unemployment Statistics [@BLS]. This data, covering various counties, is compiled in the file 'BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx' and is available through the Inter-university Consortium for Political and Social Research.
-
-The datasets 'CA1_1969_2013_ALL.csv' and 'CA25_1969_2000_ALL.csv' from the BEA, along with the 'BLS_all_archived_counties7689aa (UNOFFICIAL).xlsx' from the BLS are crucial for analyzing personal income, business patterns, and unemployment trends in our study.
-
-## Methodology and Measurement
 
 # Results
 
@@ -272,8 +268,7 @@ print(plot5)
 ## How Recession Changes the Business Patterns
 
 ## Limitations and Next Steps
-
-Due to limitations in accessing relevant datasets, this paper will not explore the diverse social impacts of recessions, specifically on birth rates and education, which were initially of primary interest. Drawing from Stuart's foundational research, we quantitatively assess the prolonged impacts of the 1980–1982 recession on individuals who were in their formative years—children, adolescents, and young adults—at the onset of this economic downturn. Stuart's findings reveal significant long-term detriments to educational attainment and income levels. Specifically, for individuals aged 0–10 in 1979, a 10 percent reduction in per capita earnings from 1979 to 1982 within their birth county correlates with a 4.7 percentage point (14.6 percent) reduction in the attainment of four-year college degrees, a decrease in earned income by \$2,100 (5.2 percent), and a 1.6 percentage point (13.0 percent) increase in the likelihood of living in poverty during 2000–2013. The adverse effects on college graduation rates are notably pronounced and consistently significant for individuals aged 0–13 in 1979, and diminish to small and statistically non-significant levels for those aged 14–22. This pattern indicates that the recession's impact likely stems from a reduction in childhood human capital or a sustained decrease in parental financial capacity to support higher education. Future research will address the effects on education and birth rates once relevant and accessible datasets become available.
+Due to limitations in accessing relevant datasets, this paper will not explore the diverse social impacts of recessions, specifically on birth rates and education, which were initially of primary interest. Drawing from Stuart's foundational research, we quantitatively assess the prolonged impacts of the 1980–1982 recession on individuals who were in their formative years—children, adolescents, and young adults—at the onset of this economic downturn. Stuart's findings reveal significant long-term detriments to educational attainment and income levels. Specifically, for individuals aged 0–10 in 1979, a 10 percent reduction in per capita earnings from 1979 to 1982 within their birth county correlates with a 4.7 percentage point (14.6 percent) reduction in the attainment of four-year college degrees, a decrease in earned income by $2,100 (5.2 percent), and a 1.6 percentage point (13.0 percent) increase in the likelihood of living in poverty during 2000–2013. The adverse effects on college graduation rates are notably pronounced and consistently significant for individuals aged 0–13 in 1979, and diminish to small and statistically non-significant levels for those aged 14–22. This pattern indicates that the recession's impact likely stems from a reduction in childhood human capital or a sustained decrease in parental financial capacity to support higher education. Future research will address the effects on education and birth rates once relevant and accessible datasets become available.
 
 \newpage
 
