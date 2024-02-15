@@ -1,4 +1,4 @@
-The Lasting Shadows of Economic Downturns: Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment, Personal Income and Business Pattern in America
+# The Lasting Shadows of Economic Downturns: Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment, Personal Income and Business Pattern in America
 
 ## Overview
 
