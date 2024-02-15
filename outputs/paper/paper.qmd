@@ -2,7 +2,7 @@
 title: "The Lasting Shadows of Economic Downturns"
 subtitle: "Unveiling the 1980–1982 Recession's Long-Run Effects on Unemployment, Personal Income and Business Pattern in America"
 author: "Heyucheng Zhang, Jiwon Choi"
-thanks: "Code and data are available at: https://github.com/jwonc4602/Long-Run-Impacts-of-Recession"
+thanks: "Code and data are available at: https://github.com/jwonc4602/Long-Run-Impacts-of-Recession. A replication of various aspects in this paper are available at: https://doi.org/10.48152/ssrp-6wty-7643"
 date: "15 February 2024"
 date-format: "D MMMM YYYY"
 abstract: "This study examines the long-term impacts of the 1980–1982 recession, focusing on changes in unemployment rates and personal income in America to assess how economic downturns influence decisions regarding business patterns and human capital investment. Our analysis of historical data reveals that the recession had enduring negative effects on employment and income levels, suggesting that such economic challenges may lead individuals to another business trends as a means to improve their marketability and financial stability. These findings emphasizes the importance of incorporating long-term considerations into economic policy-making, highlighting the need for strategies that mitigate the adverse effects of recessions while fostering investment in human capital."
@@ -39,7 +39,7 @@ cleaned_bussiness_pattern2 <- read_csv(file = here("outputs/data/cleaned_bussine
 
 # Introduction
 
-*This reproduction was performed after a replication on the Social Science Reproduction platform: [**link here**](update%20the%20link!!!)*
+This reproduction was performed after a replication on the Social Science Reproduction platform: [**link here**](https://doi.org/10.48152/ssrp-6wty-7643)
 
 This paper, titled "The Lasting Shadows of Economic Downturns," investigates the long-term impacts of the 1980–1982 recession on unemployment, personal income, and business patterns in the United States by replicating Stuart's original paper [@10.1257/app.20180055]. Despite extensive research on the immediate effects of recessions, the enduring consequences on the economic landscape warrant further exploration. Our study addresses this gap by analyzing historical data from the Bureau of Economic Analysis [@BEA] and the Bureau of Labor Statistics [@BLS] to assess how the recession has influenced employment rates, income levels, and the structure of business activities over time.
 
