@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project examines the long-term impacts of the 1980–1982 recession in the United States, focusing on unemployment rates, personal income, and business patterns. Analyzing historical data reveals significant, enduring negative effects on employment and income levels, suggesting that economic downturns drive shifts toward new business trends for improved marketability and financial stability. The study utilizes R programming for data analysis, leveraging sources from the Bureau of Economic Analysis (BEA) and the Bureau of Labor Statistics (BLS). Findings emphasize the need for economic policies that consider the long-term effects of recessions on labor markets and financial stability. This work underscores the importance of strategic policy development to mitigate adverse effects and promote human capital investment.
+This project examines the long-term impacts of the 1980–1982 recession in the United States, focusing on unemployment rates, personal income, and business patterns. Analyzing historical data reveals significant, enduring negative effects on employment and income levels, suggesting that economic downturns drive shifts toward new business trends for improved marketability and financial stability. The study utilizes R programming for data analysis, leveraging sources from the Bureau of Economic Analysis (BEA) and the Bureau of Labor Statistics (BLS). Findings emphasize the need for economic policies that consider the long-term effects of recessions on labor markets and financial stability.
 
 ## File Structure
 
